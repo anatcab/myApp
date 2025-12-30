@@ -2,8 +2,7 @@
 
 public sealed record GameListItem(
     string Id,
-    string DisplayName,
-    string Description,
+    string DisplayNameKey,
     bool HasSetup,
     bool HasStats
 );

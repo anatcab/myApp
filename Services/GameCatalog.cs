@@ -7,15 +7,13 @@ public sealed class GameCatalog : IGameCatalog
         {
             new(
                 Id: "phrases-counter",
-                DisplayName: "Liczenie fraz",
-                Description: "Losuj frazy z puli i zliczaj ich wystąpienia przyciskami.",
+                DisplayNameKey: "Game_PhrasesCounter",
                 HasSetup: true,
                 HasStats: true
             ),
             new(
                 Id: "audio-intervals",
-                DisplayName: "Sygnały w interwałach",
-                Description: "Jeden lub kilka sygnałów dźwiękowych w ustalonych odstępach.",
+                DisplayNameKey: "Game_AudioIntervals",
                 HasSetup: true,
                 HasStats: false
             )

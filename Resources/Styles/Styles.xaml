@@ -24,7 +24,6 @@
         <Setter Property="Padding" Value="18,14" />
         <Setter Property="MinimumHeightRequest" Value="56" />
         <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="ContentLayout" Value="Left,0" />
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">

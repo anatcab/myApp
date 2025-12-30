@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Globalization;
-using System.Reflection;
 
 namespace fApp;
 
@@ -27,16 +26,7 @@ public partial class GamesListViewModel : ObservableObject
 
     private static string GetResource(string key)
     {
-        var prop = typeof(AppResources).GetProperty(key, BindingFlags.Public | BindingFlags.Static);
-        if (prop is not null && prop.PropertyType == typeof(string))
-        {
-            var value = (string?)prop.GetValue(null);
-            if (!string.IsNullOrWhiteSpace(value)) return value!;
-        }
-
-        var rmProp = typeof(AppResources).GetProperty("ResourceManager", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static);
-        var rm = rmProp?.GetValue(null) as System.Resources.ResourceManager;
-        var s = rm?.GetString(key, CultureInfo.CurrentUICulture);
+        var s = AppResources.ResourceManager.GetString(key, CultureInfo.CurrentUICulture);
         return string.IsNullOrWhiteSpace(s) ? key : s!;
     }
 }

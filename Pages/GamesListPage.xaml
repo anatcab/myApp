@@ -9,6 +9,13 @@
                          HorizontalOptions="Center"
                          VerticalOptions="Center">
 
+        <Image Source="suc_logo.svg"
+               HeightRequest="220"
+               Aspect="AspectFit"
+               HorizontalOptions="Center"
+               Margin="0,8,0,12" />
+
+
         <Label Text="{x:Static local:AppResources.GamesListPrompt}" />
 
         <CollectionView ItemsSource="{Binding Games}"

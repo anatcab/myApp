@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="fApp.GamesListPage"
+             Title="fApp">
+    <Grid RowDefinitions="Auto,*" Padding="16" RowSpacing="12">
+
+        <Label Grid.Row="0"
+               Text="Gry"
+               FontSize="28"
+               FontAttributes="Bold" />
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Games}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedGame, Mode=TwoWay}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="12" RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
+                        <Label Grid.Row="0"
+                               Grid.Column="0"
+                               Text="{Binding DisplayName}"
+                               FontSize="18"
+                               FontAttributes="Bold" />
+                        <Label Grid.Row="1"
+                               Grid.Column="0"
+                               Text="{Binding Description}"
+                               FontSize="13"
+                               Opacity="0.8" />
+                        <Label Grid.Row="0"
+                               Grid.Column="1"
+                               Text=">"
+                               FontSize="26"
+                               VerticalOptions="Center"
+                               Opacity="0.6" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

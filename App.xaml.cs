@@ -5,6 +5,6 @@ public partial class App : Application
     public App(GamesListPage gamesListPage)
     {
         InitializeComponent();
-        MainPage = gamesListPage;
+        MainPage = new NavigationPage(gamesListPage);
     }
 }

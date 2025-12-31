@@ -9,6 +9,7 @@
     <Color x:Key="SelectedColor">#e60050</Color>
     <Color x:Key="SpecialColor">#bd3061</Color>
     <Color x:Key="NavBarColor">#640032</Color>
+    <Color x:Key="InactiveColor">#784f5d</Color>
 
     <Color x:Key="White">#FFFFFF</Color>
 
@@ -18,5 +19,6 @@
     <SolidColorBrush x:Key="NavBarBrush" Color="{StaticResource NavBarColor}" />
     <SolidColorBrush x:Key="SpecialBrush" Color="{StaticResource SpecialColor}" />
     <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}" />
+    <SolidColorBrush x:Key="InactiveBrush" Color="{StaticResource InactiveColor}" />
 
 </ResourceDictionary>

@@ -21,7 +21,14 @@ public partial class GamesListViewModel : ObservableObject
     [RelayCommand]
     private async Task SelectGame(GameListEntry entry)
     {
-        await Application.Current!.MainPage!.DisplayAlert("Wybrano grę", entry.DisplayName, "OK");
+        if (entry.Game.Id == "music-counter")
+        {
+            var setup = Application.Current!.Handler!.MauiContext!.Services.GetRequiredService<fApp.Games.MusicCounter.MusicCounterSetupPage>();
+            await Application.Current!.MainPage!.Navigation.PushAsync(setup);
+            return;
+        }
+
+        await Application.Current!.MainPage!.DisplayAlert("Selected game", entry.DisplayName, "OK");
     }
 
     private static string GetResource(string key)

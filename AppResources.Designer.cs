@@ -72,9 +72,9 @@ namespace fApp {
         /// <summary>
         ///   Looks up a localized string similar to Succumb to music.
         /// </summary>
-        public static string Game_PhrasesCounter {
+        public static string Game_MusicCounter {
             get {
-                return ResourceManager.GetString("Game_PhrasesCounter", resourceCulture);
+                return ResourceManager.GetString("Game_MusicCounter", resourceCulture);
             }
         }
         

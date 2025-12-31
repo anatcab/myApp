@@ -6,8 +6,8 @@ public sealed class GameCatalog : IGameCatalog
         new List<GameListItem>
         {
             new(
-                Id: "phrases-counter",
-                DisplayNameKey: "Game_PhrasesCounter",
+                Id: "music-counter",
+                DisplayNameKey: "Game_MusicCounter",
                 HasSetup: true,
                 HasStats: true
             ),

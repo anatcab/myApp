@@ -1,0 +1,124 @@
+{
+  "categories": [
+    {
+      "id": "cat_1",
+      "nameKey": "Category_1",
+      "phrases": [
+        {
+          "id": "p_1_1",
+          "textKey": "Phrase_1_1"
+        },
+        {
+          "id": "p_1_2",
+          "textKey": "Phrase_1_2"
+        },
+        {
+          "id": "p_1_3",
+          "textKey": "Phrase_1_3"
+        },
+        {
+          "id": "p_1_4",
+          "textKey": "Phrase_1_4"
+        },
+        {
+          "id": "p_1_5",
+          "textKey": "Phrase_1_5"
+        },
+        {
+          "id": "p_1_6",
+          "textKey": "Phrase_1_6"
+        }
+      ]
+    },
+    {
+      "id": "cat_2",
+      "nameKey": "Category_2",
+      "phrases": [
+        {
+          "id": "p_2_1",
+          "textKey": "Phrase_2_1"
+        },
+        {
+          "id": "p_2_2",
+          "textKey": "Phrase_2_2"
+        },
+        {
+          "id": "p_2_3",
+          "textKey": "Phrase_2_3"
+        },
+        {
+          "id": "p_2_4",
+          "textKey": "Phrase_2_4"
+        },
+        {
+          "id": "p_2_5",
+          "textKey": "Phrase_2_5"
+        },
+        {
+          "id": "p_2_6",
+          "textKey": "Phrase_2_6"
+        }
+      ]
+    },
+    {
+      "id": "cat_3",
+      "nameKey": "Category_3",
+      "phrases": [
+        {
+          "id": "p_3_1",
+          "textKey": "Phrase_3_1"
+        },
+        {
+          "id": "p_3_2",
+          "textKey": "Phrase_3_2"
+        },
+        {
+          "id": "p_3_3",
+          "textKey": "Phrase_3_3"
+        },
+        {
+          "id": "p_3_4",
+          "textKey": "Phrase_3_4"
+        },
+        {
+          "id": "p_3_5",
+          "textKey": "Phrase_3_5"
+        },
+        {
+          "id": "p_3_6",
+          "textKey": "Phrase_3_6"
+        }
+      ]
+    },
+    {
+      "id": "cat_4",
+      "nameKey": "Category_4",
+      "phrases": [
+        {
+          "id": "p_4_1",
+          "textKey": "Phrase_4_1"
+        },
+        {
+          "id": "p_4_2",
+          "textKey": "Phrase_4_2"
+        },
+        {
+          "id": "p_4_3",
+          "textKey": "Phrase_4_3"
+        },
+        {
+          "id": "p_4_4",
+          "textKey": "Phrase_4_4"
+        },
+        {
+          "id": "p_4_5",
+          "textKey": "Phrase_4_5"
+        },
+        {
+          "id": "p_4_6",
+          "textKey": "Phrase_4_6"
+        }
+      ]
+    }
+  ]
+}

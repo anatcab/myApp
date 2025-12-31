@@ -67,16 +67,39 @@
             </VerticalStackLayout>
         </Grid>
 
-        <Button Text="Random"
-                HeightRequest="66"
-                CornerRadius="18"
-                Command="{Binding DrawAnyCommand}">
-            <Button.Triggers>
-                <DataTrigger TargetType="Button" Binding="{Binding CanDrawAny}" Value="False">
-                    <Setter Property="BackgroundColor" Value="{StaticResource InactiveColor}" />
-                </DataTrigger>
-            </Button.Triggers>
-        </Button>
+        <Grid ColumnDefinitions="Auto,*,Auto"
+              ColumnSpacing="16"
+              VerticalOptions="Center">
+
+            <Image Grid.Column="0"
+                   Source="spades_small.svg"
+                   HeightRequest="120"
+                   WidthRequest="120"
+                   Aspect="AspectFit"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center" />
+
+            <Button Grid.Column="1"
+                    Text="Random"
+                    HeightRequest="66"
+                    CornerRadius="18"
+                    Command="{Binding DrawAnyCommand}">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding CanDrawAny}" Value="False">
+                        <Setter Property="BackgroundColor" Value="{StaticResource InactiveColor}" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
+
+            <Image Grid.Column="2"
+                   Source="spades_small.svg"
+                   HeightRequest="120"
+                   WidthRequest="120"
+                   Aspect="AspectFit"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center" />
+
+        </Grid>
 
         <CollectionView ItemsSource="{Binding CategoryDrawButtons}"
                         SelectionMode="None"

@@ -10,7 +10,7 @@
 
     <Style TargetType="Label">
         <Setter Property="TextColor" Value="{StaticResource White}" />
-        <Setter Property="FontFamily" Value="LovelaceScript" />
+        <Setter Property="FontFamily" Value="Allura" />
         <Setter Property="FontSize" Value="26" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
@@ -18,7 +18,7 @@
     <Style TargetType="Button">
         <Setter Property="TextColor" Value="{StaticResource White}" />
         <Setter Property="BackgroundColor" Value="{StaticResource ButtonColor}" />
-        <Setter Property="FontFamily" Value="LovelaceScript" />
+        <Setter Property="FontFamily" Value="Allura" />
         <Setter Property="FontSize" Value="26" />
         <Setter Property="CornerRadius" Value="18" />
         <Setter Property="Padding" Value="18,14" />

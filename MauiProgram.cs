@@ -12,7 +12,7 @@ public static class MauiProgram
             .UseMauiApp<App>()
             .ConfigureFonts(fonts =>
             {
-                fonts.AddFont("LovelaceScript.ttf", "LovelaceScript");
+                fonts.AddFont("Allura-Regular.ttf", "Allura");
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });

@@ -6,7 +6,8 @@
 
     <Color x:Key="AppBackground">#33001a</Color>
     <Color x:Key="ButtonColor">#940034</Color>
-    <Color x:Key="SelectedColor">#c80046</Color>
+    <Color x:Key="SelectedColor">#e60050</Color>
+    <Color x:Key="SpecialColor">#bd3061</Color>
     <Color x:Key="NavBarColor">#640032</Color>
 
     <Color x:Key="White">#FFFFFF</Color>
@@ -15,6 +16,7 @@
     <SolidColorBrush x:Key="ButtonBrush" Color="{StaticResource ButtonColor}" />
     <SolidColorBrush x:Key="SelectedBrush" Color="{StaticResource SelectedColor}" />
     <SolidColorBrush x:Key="NavBarBrush" Color="{StaticResource NavBarColor}" />
+    <SolidColorBrush x:Key="SpecialBrush" Color="{StaticResource SpecialColor}" />
     <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}" />
 
 </ResourceDictionary>

@@ -17,7 +17,7 @@
                     HeightRequest="76"
                     CornerRadius="999"
                     Padding="0"
-                    FontSize="20"
+                    FontSize="24"
                     BackgroundColor="{StaticResource ButtonColor}"
                     TextColor="{StaticResource White}"
                     Command="{Binding EndCommand}" />
@@ -31,7 +31,7 @@
                     HorizontalOptions="Center"
                     VerticalOptions="Center">
                 <Label Text="{Binding GlobalCount}"
-                       FontSize="64"
+                       FontSize="88"
                        VerticalTextAlignment="Center"
                        HorizontalTextAlignment="Center"
                        TextColor="{StaticResource White}" />
@@ -47,7 +47,7 @@
                         HeightRequest="76"
                         CornerRadius="999"
                         Padding="0"
-                        FontSize="18"
+                        FontSize="26"
                         BackgroundColor="{StaticResource ButtonColor}"
                         TextColor="{StaticResource White}"
                         Command="{Binding ResetCommand}" />

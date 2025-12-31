@@ -89,7 +89,7 @@
                 CornerRadius="999"
                 BackgroundColor="{StaticResource SpecialColor}"
                 TextColor="{StaticResource White}"
-                FontSize="26"
+                FontSize="32"
                 HorizontalOptions="Center"
                 Command="{Binding BackCommand}" />
 

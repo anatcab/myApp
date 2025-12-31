@@ -17,7 +17,7 @@
                Margin="0,8,0,12" />
 
         <Label Text="{x:Static local:AppResources.GamesListPrompt}"
-               FontSize="34" />
+               FontSize="44" />
 
         <CollectionView ItemsSource="{Binding Games}"
                         SelectionMode="None"
@@ -30,6 +30,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Button Text="{Binding DisplayName}"
+                                    FontSize="36"
                             Command="{Binding Source={RelativeSource AncestorType={x:Type local:GamesListViewModel}}, Path=SelectGameCommand}"
                             CommandParameter="{Binding .}"
                             WidthRequest="280" />

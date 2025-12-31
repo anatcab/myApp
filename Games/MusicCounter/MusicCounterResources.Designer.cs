@@ -97,7 +97,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to End.
+        ///   Looks up a localized string similar to Escape....
         /// </summary>
         public static string Game_End {
             get {
@@ -340,7 +340,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Back.
+        ///   Looks up a localized string similar to Return....
         /// </summary>
         public static string Stats_Back {
             get {
@@ -349,7 +349,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrases.
+        ///   Looks up a localized string similar to Kinks.
         /// </summary>
         public static string Stats_Phrases {
             get {

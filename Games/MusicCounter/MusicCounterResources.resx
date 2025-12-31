@@ -121,7 +121,7 @@
     <value>Go!</value>
   </data>
   <data name="Game_End" xml:space="preserve">
-    <value>End</value>
+    <value>Escape...</value>
   </data>
   <data name="Game_Reset" xml:space="preserve">
     <value>Reset</value>
@@ -214,9 +214,9 @@
     <value>Phrase 4-6</value>
   </data>
   <data name="Stats_Phrases" xml:space="preserve">
-    <value>Phrases</value>
+    <value>Kinks</value>
   </data>
   <data name="Stats_Back" xml:space="preserve">
-    <value>Back</value>
+    <value>Return...</value>
   </data>
 </root>

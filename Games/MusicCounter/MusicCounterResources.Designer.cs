@@ -61,7 +61,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Category 1.
+        ///   Looks up a localized string similar to Colours.
         /// </summary>
         public static string Category_1 {
             get {
@@ -70,7 +70,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Category 2.
+        ///   Looks up a localized string similar to Clothing.
         /// </summary>
         public static string Category_2 {
             get {
@@ -79,7 +79,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Category 3.
+        ///   Looks up a localized string similar to Tease.
         /// </summary>
         public static string Category_3 {
             get {
@@ -88,7 +88,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Category 4.
+        ///   Looks up a localized string similar to Act.
         /// </summary>
         public static string Category_4 {
             get {
@@ -115,7 +115,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 1-1.
+        ///   Looks up a localized string similar to Green.
         /// </summary>
         public static string Phrase_1_1 {
             get {
@@ -124,7 +124,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 1-2.
+        ///   Looks up a localized string similar to Blue.
         /// </summary>
         public static string Phrase_1_2 {
             get {
@@ -133,7 +133,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 1-3.
+        ///   Looks up a localized string similar to Orange.
         /// </summary>
         public static string Phrase_1_3 {
             get {
@@ -142,7 +142,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 1-4.
+        ///   Looks up a localized string similar to Pink.
         /// </summary>
         public static string Phrase_1_4 {
             get {
@@ -151,7 +151,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 1-5.
+        ///   Looks up a localized string similar to Yellow.
         /// </summary>
         public static string Phrase_1_5 {
             get {
@@ -160,7 +160,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 1-6.
+        ///   Looks up a localized string similar to Redhead.
         /// </summary>
         public static string Phrase_1_6 {
             get {
@@ -169,7 +169,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 2-1.
+        ///   Looks up a localized string similar to Fishnet.
         /// </summary>
         public static string Phrase_2_1 {
             get {
@@ -178,7 +178,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 2-2.
+        ///   Looks up a localized string similar to Bodysuit.
         /// </summary>
         public static string Phrase_2_2 {
             get {
@@ -187,7 +187,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 2-3.
+        ///   Looks up a localized string similar to Thong straps.
         /// </summary>
         public static string Phrase_2_3 {
             get {
@@ -196,7 +196,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 2-4.
+        ///   Looks up a localized string similar to Pantyshot.
         /// </summary>
         public static string Phrase_2_4 {
             get {
@@ -205,7 +205,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 2-5.
+        ///   Looks up a localized string similar to Bare shoulders.
         /// </summary>
         public static string Phrase_2_5 {
             get {
@@ -214,7 +214,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 2-6.
+        ///   Looks up a localized string similar to Tattoo.
         /// </summary>
         public static string Phrase_2_6 {
             get {
@@ -223,7 +223,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 3-1.
+        ///   Looks up a localized string similar to Presenting ass.
         /// </summary>
         public static string Phrase_3_1 {
             get {
@@ -232,7 +232,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 3-2.
+        ///   Looks up a localized string similar to Side/underboob.
         /// </summary>
         public static string Phrase_3_2 {
             get {
@@ -241,7 +241,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 3-3.
+        ///   Looks up a localized string similar to Presenting tits.
         /// </summary>
         public static string Phrase_3_3 {
             get {
@@ -250,7 +250,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 3-4.
+        ///   Looks up a localized string similar to Eating, drinking.
         /// </summary>
         public static string Phrase_3_4 {
             get {
@@ -259,7 +259,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 3-5.
+        ///   Looks up a localized string similar to Ahegao.
         /// </summary>
         public static string Phrase_3_5 {
             get {
@@ -268,7 +268,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 3-6.
+        ///   Looks up a localized string similar to Tongue or lip bite.
         /// </summary>
         public static string Phrase_3_6 {
             get {
@@ -277,7 +277,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 4-1.
+        ///   Looks up a localized string similar to Anus.
         /// </summary>
         public static string Phrase_4_1 {
             get {
@@ -286,7 +286,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 4-2.
+        ///   Looks up a localized string similar to Clit.
         /// </summary>
         public static string Phrase_4_2 {
             get {
@@ -295,7 +295,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 4-3.
+        ///   Looks up a localized string similar to Two sets of boobs.
         /// </summary>
         public static string Phrase_4_3 {
             get {
@@ -304,7 +304,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 4-4.
+        ///   Looks up a localized string similar to Cum or creampie.
         /// </summary>
         public static string Phrase_4_4 {
             get {
@@ -313,7 +313,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 4-5.
+        ///   Looks up a localized string similar to Deepthroat.
         /// </summary>
         public static string Phrase_4_5 {
             get {
@@ -322,7 +322,7 @@ namespace fApp.Games.MusicCounter {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Phrase 4-6.
+        ///   Looks up a localized string similar to Toy.
         /// </summary>
         public static string Phrase_4_6 {
             get {

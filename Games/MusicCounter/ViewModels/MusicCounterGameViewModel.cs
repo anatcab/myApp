@@ -14,9 +14,13 @@ public partial class MusicCounterGameViewModel : ObservableObject
 
     private MusicCounterDefinition? _def;
 
+    private const int MaxPhrases = 6;
+
     [ObservableProperty] private int _globalCount;
     [ObservableProperty] private int _resetCount;
     [ObservableProperty] private bool _canDrawAny;
+
+    [ObservableProperty] private int _categoryButtonsSpan = 1;
 
     public ObservableCollection<MusicCounterPhraseEntry> Phrases { get; } = new();
     public ObservableCollection<MusicCounterCategoryDrawButton> CategoryDrawButtons { get; } = new();
@@ -57,10 +61,17 @@ public partial class MusicCounterGameViewModel : ObservableObject
             CategoryDrawButtons.Add(new MusicCounterCategoryDrawButton(cat.Id, GetResource(cat.NameKey)));
         }
 
+        CategoryButtonsSpan = Math.Max(1, CategoryDrawButtons.Count);
+
         foreach (var (categoryId, initialDraws) in selected)
         {
             for (var i = 0; i < initialDraws; i++)
+            {
+                if (Phrases.Count >= MaxPhrases) break;
                 TryDrawFromCategory(categoryId);
+            }
+
+            if (Phrases.Count >= MaxPhrases) break;
         }
 
         UpdateExhaustedFlags();
@@ -96,6 +107,12 @@ public partial class MusicCounterGameViewModel : ObservableObject
     [RelayCommand]
     private void DrawAny()
     {
+        if (Phrases.Count >= MaxPhrases)
+        {
+            UpdateExhaustedFlags();
+            return;
+        }
+
         if (!CanDrawAny)
         {
             UpdateExhaustedFlags();
@@ -126,7 +143,14 @@ public partial class MusicCounterGameViewModel : ObservableObject
     [RelayCommand]
     private void DrawFromCategory(MusicCounterCategoryDrawButton button)
     {
+        if (Phrases.Count >= MaxPhrases)
+        {
+            UpdateExhaustedFlags();
+            return;
+        }
+
         if (button.IsExhausted) return;
+
         TryDrawFromCategory(button.CategoryId);
         UpdateExhaustedFlags();
     }
@@ -145,10 +169,12 @@ public partial class MusicCounterGameViewModel : ObservableObject
 
     private void TryDrawFromCategory(string categoryId)
     {
+        if (Phrases.Count >= MaxPhrases) return;
+
         if (!_remainingByCategory.TryGetValue(categoryId, out var pool)) return;
+        if (pool.Count == 0) return;
 
         if (!_rng.TryTake(pool, out var phrase) || phrase is null) return;
-
         if (_phraseIndex.ContainsKey(phrase.Id)) return;
 
         var entry = new MusicCounterPhraseEntry(phrase.Id, GetResource(phrase.TextKey));
@@ -158,6 +184,15 @@ public partial class MusicCounterGameViewModel : ObservableObject
 
     private void UpdateExhaustedFlags()
     {
+        if (Phrases.Count >= MaxPhrases)
+        {
+            foreach (var b in CategoryDrawButtons)
+                b.IsExhausted = true;
+
+            CanDrawAny = false;
+            return;
+        }
+
         var any = false;
 
         foreach (var b in CategoryDrawButtons)

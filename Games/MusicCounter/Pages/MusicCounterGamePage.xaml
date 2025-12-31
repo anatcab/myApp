@@ -17,7 +17,7 @@
                     HeightRequest="76"
                     CornerRadius="999"
                     Padding="0"
-                    FontSize="24"
+                    FontSize="22"
                     BackgroundColor="{StaticResource ButtonColor}"
                     TextColor="{StaticResource White}"
                     Command="{Binding EndCommand}" />
@@ -67,13 +67,13 @@
             </VerticalStackLayout>
         </Grid>
 
-        <Grid ColumnDefinitions="Auto,*,Auto"
-              ColumnSpacing="16"
+        <Grid ColumnDefinitions="120,*,120"
+              ColumnSpacing="12"
               VerticalOptions="Center">
 
             <Image Grid.Column="0"
                    Source="spades_small.svg"
-                   HeightRequest="120"
+                   HeightRequest="100"
                    WidthRequest="120"
                    Aspect="AspectFit"
                    VerticalOptions="Center"
@@ -83,6 +83,9 @@
                     Text="Random"
                     HeightRequest="66"
                     CornerRadius="18"
+                    FontSize="28"
+                    Padding="18,0"
+                    HorizontalOptions="Fill"
                     Command="{Binding DrawAnyCommand}">
                 <Button.Triggers>
                     <DataTrigger TargetType="Button" Binding="{Binding CanDrawAny}" Value="False">
@@ -93,7 +96,7 @@
 
             <Image Grid.Column="2"
                    Source="spades_small.svg"
-                   HeightRequest="120"
+                   HeightRequest="100"
                    WidthRequest="120"
                    Aspect="AspectFit"
                    VerticalOptions="Center"
@@ -105,7 +108,10 @@
                         SelectionMode="None"
                         HorizontalOptions="Fill">
             <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10" />
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="{Binding CategoryButtonsSpan}"
+                                 HorizontalItemSpacing="10"
+                                 VerticalItemSpacing="10" />
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
@@ -115,6 +121,7 @@
                             CornerRadius="18"
                             Padding="12,8"
                             FontSize="16"
+                            HorizontalOptions="Fill"
                             Command="{Binding Source={RelativeSource AncestorType={x:Type local:MusicCounterGameViewModel}}, Path=DrawFromCategoryCommand}"
                             CommandParameter="{Binding .}">
                         <Button.Triggers>
@@ -143,18 +150,44 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Button Command="{Binding Source={RelativeSource AncestorType={x:Type local:MusicCounterGameViewModel}}, Path=CountPhraseCommand}"
-                            CommandParameter="{Binding .}"
+                    <Border StrokeThickness="0"
+                            BackgroundColor="{StaticResource ButtonColor}"
+                            StrokeShape="RoundRectangle 18"
                             Padding="14,12"
-                            CornerRadius="18">
-                        <Button.Text>
-                            <MultiBinding StringFormat="{}{0}  {1} ({2})">
-                                <Binding Path="DisplayText" />
-                                <Binding Path="CurrentCount" />
-                                <Binding Path="TotalCount" />
-                            </MultiBinding>
-                        </Button.Text>
-                    </Button>
+                            HeightRequest="132">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type local:MusicCounterGameViewModel}}, Path=CountPhraseCommand}"
+                                                  CommandParameter="{Binding .}" />
+                        </Border.GestureRecognizers>
+
+                        <Grid RowDefinitions="*,Auto"
+                              RowSpacing="10">
+
+                            <Label Text="{Binding DisplayText}"
+                                   FontSize="26"
+                                   TextColor="{StaticResource White}"
+                                   LineBreakMode="TailTruncation"
+                                   MaxLines="2"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center" />
+
+                            <Border Grid.Row="1"
+                                    StrokeThickness="0"
+                                    BackgroundColor="{StaticResource SelectedColor}"
+                                    StrokeShape="RoundRectangle 999"
+                                    HeightRequest="46"
+                                    WidthRequest="86"
+                                    HorizontalOptions="Center"
+                                    Padding="0">
+                                <Label Text="{Binding CurrentCount}"
+                                       FontSize="28"
+                                       TextColor="{StaticResource White}"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center" />
+                            </Border>
+
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

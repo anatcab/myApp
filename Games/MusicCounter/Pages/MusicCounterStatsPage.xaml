@@ -13,6 +13,12 @@
             <VerticalStackLayout Spacing="16"
                                  Padding="0,0,0,40">
 
+                <Image Source="spades_logo.svg"
+                       HeightRequest="120"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center"
+                       Margin="0,4,0,4" />
+
                 <Label Text="{x:Static local:MusicCounterResources.Stats_Title}"
                        FontSize="52" />
 
@@ -62,13 +68,11 @@
                                 <Grid ColumnDefinitions="*,Auto">
                                     <Label Text="{Binding Phrase}"
                                            FontSize="26"
-                                           FontFamily="Allura"
-                                           HorizontalTextAlignment="Start" />
+                                           FontFamily="Allura" />
                                     <Label Grid.Column="1"
                                            Text="{Binding Total}"
                                            FontSize="26"
-                                           FontFamily="Allura"
-                                           HorizontalTextAlignment="End" />
+                                           FontFamily="Allura" />
                                 </Grid>
                             </Border>
                         </DataTemplate>

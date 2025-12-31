@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using fApp.Shared;
+using Microsoft.Maui.Devices;
 using System.Collections.ObjectModel;
 using System.Globalization;
 
@@ -80,6 +81,8 @@ public partial class MusicCounterGameViewModel : ObservableObject
     [RelayCommand]
     private void Reset()
     {
+        TryHaptic(HapticFeedbackType.LongPress);
+
         _segmentTotals.Add(_currentSegmentTotal);
         _currentSegmentTotal = 0;
 
@@ -131,6 +134,8 @@ public partial class MusicCounterGameViewModel : ObservableObject
     [RelayCommand]
     private void CountPhrase(MusicCounterPhraseEntry entry)
     {
+        TryHaptic(HapticFeedbackType.Click);
+
         GlobalCount += 1;
         _currentSegmentTotal += 1;
 
@@ -163,6 +168,18 @@ public partial class MusicCounterGameViewModel : ObservableObject
         }
 
         CanDrawAny = any;
+    }
+
+    private static void TryHaptic(HapticFeedbackType type)
+    {
+        try
+        {
+            if (HapticFeedback.Default.IsSupported)
+                HapticFeedback.Default.Perform(type);
+        }
+        catch
+        {
+        }
     }
 
     private static string GetResource(string key)

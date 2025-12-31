@@ -10,8 +10,8 @@
           RowSpacing="18">
 
         <Image Grid.Row="0"
-               Source="suc_logo.svg"
-               HeightRequest="200"
+               Source="spades_logo.svg"
+               HeightRequest="260"
                Aspect="AspectFit"
                HorizontalOptions="Center"
                Margin="0,8,0,6" />
@@ -26,16 +26,16 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid ColumnDefinitions="*,Auto,Auto"
-                          ColumnSpacing="10"
-                          RowDefinitions="Auto">
+                          ColumnSpacing="10">
 
                         <Border Grid.Column="0"
                                 StrokeThickness="0"
                                 Padding="16,12"
                                 StrokeShape="RoundRectangle 18">
                             <Border.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type local:MusicCounterSetupViewModel}}, Path=ToggleSelectedCommand}"
-                                                      CommandParameter="{Binding .}" />
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:MusicCounterSetupViewModel}}, Path=ToggleSelectedCommand}"
+                                    CommandParameter="{Binding .}" />
                             </Border.GestureRecognizers>
 
                             <Border.Triggers>
@@ -50,32 +50,55 @@
                             <Grid ColumnDefinitions="*,Auto">
                                 <Label Text="{Binding DisplayName}"
                                        FontSize="24"
-                                       HorizontalTextAlignment="Start"
-                                       VerticalTextAlignment="Center" />
-
+                                       HorizontalTextAlignment="Start" />
                                 <Label Grid.Column="1"
                                        Text="{Binding DrawCount}"
                                        FontSize="24"
-                                       VerticalTextAlignment="Center"
                                        HorizontalTextAlignment="End" />
                             </Grid>
                         </Border>
 
-                        <Button Grid.Column="1"
-                                Text="-"
+                        <Border Grid.Column="1"
                                 WidthRequest="56"
                                 HeightRequest="56"
-                                CornerRadius="18"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:MusicCounterSetupViewModel}}, Path=DecrementCommand}"
-                                CommandParameter="{Binding .}" />
+                                StrokeThickness="0"
+                                BackgroundColor="{StaticResource ButtonColor}"
+                                StrokeShape="RoundRectangle 18">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:MusicCounterSetupViewModel}}, Path=DecrementCommand}"
+                                    CommandParameter="{Binding .}" />
+                            </Border.GestureRecognizers>
+                            <Grid>
+                                <Label Text="-"
+                                       FontSize="34"
+                                       FontFamily="OpenSansSemibold"
+                                       TextColor="{StaticResource White}"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center" />
+                            </Grid>
+                        </Border>
 
-                        <Button Grid.Column="2"
-                                Text="+"
+                        <Border Grid.Column="2"
                                 WidthRequest="56"
                                 HeightRequest="56"
-                                CornerRadius="18"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:MusicCounterSetupViewModel}}, Path=IncrementCommand}"
-                                CommandParameter="{Binding .}" />
+                                StrokeThickness="0"
+                                BackgroundColor="{StaticResource ButtonColor}"
+                                StrokeShape="RoundRectangle 18">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:MusicCounterSetupViewModel}}, Path=IncrementCommand}"
+                                    CommandParameter="{Binding .}" />
+                            </Border.GestureRecognizers>
+                            <Grid>
+                                <Label Text="+"
+                                       FontSize="34"
+                                       FontFamily="OpenSansSemibold"
+                                       TextColor="{StaticResource White}"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center" />
+                            </Grid>
+                        </Border>
 
                     </Grid>
                 </DataTemplate>
@@ -84,13 +107,21 @@
 
         <Button Grid.Row="2"
                 Text="{x:Static local:MusicCounterResources.Setup_Go}"
-                BackgroundColor="{StaticResource SpecialColor}"
                 CornerRadius="999"
                 HeightRequest="96"
                 FontSize="42"
                 Margin="0,14,0,0"
                 IsEnabled="{Binding CanStart}"
-                Command="{Binding GoCommand}" />
+                Command="{Binding GoCommand}">
+            <Button.Triggers>
+                <DataTrigger TargetType="Button" Binding="{Binding IsEnabled}" Value="False">
+                    <Setter Property="BackgroundColor" Value="{StaticResource InactiveColor}" />
+                </DataTrigger>
+                <DataTrigger TargetType="Button" Binding="{Binding IsEnabled}" Value="True">
+                    <Setter Property="BackgroundColor" Value="{StaticResource SpecialColor}" />
+                </DataTrigger>
+            </Button.Triggers>
+        </Button>
 
     </Grid>
 </ContentPage>

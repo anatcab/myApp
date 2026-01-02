@@ -169,6 +169,60 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Timer 1.
+        /// </summary>
+        public static string Stats_Timer1_Header {
+            get {
+                return ResourceManager.GetString("Stats_Timer1_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max repeats reached.
+        /// </summary>
+        public static string Stats_Timer1_MaxRepeatsReached {
+            get {
+                return ResourceManager.GetString("Stats_Timer1_MaxRepeatsReached", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sum base-after-3.
+        /// </summary>
+        public static string Stats_Timer2_BaseAfter3Sum {
+            get {
+                return ResourceManager.GetString("Stats_Timer2_BaseAfter3Sum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sum delay-after-2.
+        /// </summary>
+        public static string Stats_Timer2_DelayAfter2Sum {
+            get {
+                return ResourceManager.GetString("Stats_Timer2_DelayAfter2Sum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timer 2.
+        /// </summary>
+        public static string Stats_Timer2_Header {
+            get {
+                return ResourceManager.GetString("Stats_Timer2_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sequences.
+        /// </summary>
+        public static string Stats_Timer2_SequenceCount {
+            get {
+                return ResourceManager.GetString("Stats_Timer2_SequenceCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stats:.
         /// </summary>
         public static string Stats_Title {

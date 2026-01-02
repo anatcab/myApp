@@ -11,8 +11,6 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
     private readonly IRandomTimeProvider _rng;
     private readonly ISequenceGate _gate;
     private readonly IAudioService _audio;
-    [ObservableProperty] private bool _isTimer2Visible;
-    [ObservableProperty] private double _timerCircleSize = 260;
 
     private EndureIntervalsConfig? _cfg;
 
@@ -24,9 +22,7 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
     ];
 
     private CancellationTokenSource? _cts;
-
     private bool _isRunning;
-    private DateTimeOffset _lastTickUtc;
 
     private int _t1LastDrawSeconds;
     private DateTimeOffset _t1DueUtc;
@@ -39,8 +35,7 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
     private DateTimeOffset _t2DueUtc;
     private bool _t2Pending;
 
-    private int _timer1MaxDurationSeconds;
-    private int _timer1MaxDurationCount;
+    private int _timer1MaxRepeatsReached;
 
     private int _timer2SequenceCount;
     private int _timer2DelayAfter2SumSeconds;
@@ -48,10 +43,9 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
 
     [ObservableProperty] private string _timer1RemainingText = "";
     [ObservableProperty] private string _timer2RemainingText = "";
-    [ObservableProperty] private string _timer1RepeatText = "";
-    [ObservableProperty] private string _timer2EnabledText = "";
-    [ObservableProperty] private string _statusText = "";
     [ObservableProperty] private string _startPauseText = "";
+    [ObservableProperty] private bool _isTimer2Visible;
+    [ObservableProperty] private double _timerCircleSize = 260;
 
     public EndureIntervalsGameViewModel(IRandomTimeProvider rng, ISequenceGate gate, IAudioService audio)
     {
@@ -71,8 +65,7 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
         _t1RepeatCount = 0;
         _t1LimitArmed = false;
 
-        _timer1MaxDurationSeconds = 0;
-        _timer1MaxDurationCount = 0;
+        _timer1MaxRepeatsReached = 0;
 
         _timer2SequenceCount = 0;
         _timer2DelayAfter2SumSeconds = 0;
@@ -89,9 +82,6 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
 
         _isRunning = false;
         UpdateUi();
-
-        StatusText = "Ready";
-        Timer2EnabledText = cfg.Timer2Enabled ? "Enabled" : "Disabled";
     }
 
     private int DrawTimer1()
@@ -122,18 +112,13 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
 
     private void StartInternal()
     {
-        if (_cfg is null) return;
-
         AudioService.VibrateStart();
 
         _cts?.Cancel();
         _cts = new CancellationTokenSource();
 
         _isRunning = true;
-        _lastTickUtc = DateTimeOffset.UtcNow;
         StartPauseText = EndureIntervalsResources.Game_Pause;
-
-        StatusText = "Running";
 
         Device.StartTimer(TimeSpan.FromMilliseconds(200), () =>
         {
@@ -149,7 +134,6 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
         _cts?.Cancel();
         _cts = null;
         StartPauseText = EndureIntervalsResources.Game_Start;
-        StatusText = "Paused";
         UpdateUi();
     }
 
@@ -167,7 +151,6 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
             _t2Pending = false;
         }
 
-        StatusText = "Reset";
         UpdateUi();
     }
 
@@ -177,8 +160,8 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
         PauseInternal();
 
         var snap = new EndureIntervalsStatsSnapshot(
-            Timer1MaxDurationSeconds: _timer1MaxDurationSeconds,
-            Timer1MaxDurationCount: _timer1MaxDurationCount,
+            Timer1MaxRepeatsReached: _timer1MaxRepeatsReached,
+            Timer2Enabled: _cfg?.Timer2Enabled == true,
             Timer2SequenceCount: _timer2SequenceCount,
             Timer2DelayAfter2SumSeconds: _timer2DelayAfter2SumSeconds,
             Timer2BaseAfter3SumSeconds: _timer2BaseAfter3SumSeconds
@@ -197,7 +180,6 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
         if (!_isRunning) return;
 
         var now = DateTimeOffset.UtcNow;
-        _lastTickUtc = now;
 
         if (!_t1Pending && now >= _t1DueUtc)
             _t1Pending = true;
@@ -235,9 +217,6 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
         using var linked = CancellationTokenSource.CreateLinkedTokenSource(outerCt);
         var ct = linked.Token;
 
-        var duration = _t1LastDrawSeconds;
-        TrackTimer1Duration(duration);
-
         await _gate.RunAsync(async token =>
         {
             if (_t1LimitArmed)
@@ -250,7 +229,11 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
             else
             {
                 await _audio.PlayAsync("inf_tick", token);
+
                 _t1RepeatCount += 1;
+                if (_t1RepeatCount > _timer1MaxRepeatsReached)
+                    _timer1MaxRepeatsReached = _t1RepeatCount;
+
                 if (_t1RepeatCount >= _t1MaxRepeats)
                     _t1LimitArmed = true;
             }
@@ -299,28 +282,12 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
         return _scenarios[idx];
     }
 
-    private void TrackTimer1Duration(int seconds)
-    {
-        if (seconds > _timer1MaxDurationSeconds)
-        {
-            _timer1MaxDurationSeconds = seconds;
-            _timer1MaxDurationCount = 1;
-            return;
-        }
-
-        if (seconds == _timer1MaxDurationSeconds)
-            _timer1MaxDurationCount += 1;
-    }
-
     private void UpdateUi()
     {
         var now = DateTimeOffset.UtcNow;
 
         var t1rem = Math.Max(0, (int)Math.Ceiling((_t1DueUtc - now).TotalSeconds));
         Timer1RemainingText = $"{t1rem}s";
-        Timer1RepeatText = _t1LimitArmed
-            ? $"Limit armed ({_t1RepeatCount}/{_t1MaxRepeats})"
-            : $"{_t1RepeatCount}/{_t1MaxRepeats}";
 
         if (_cfg is null || !_cfg.Timer2Enabled)
         {
@@ -333,19 +300,5 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
         }
 
         StartPauseText = _isRunning ? EndureIntervalsResources.Game_Pause : EndureIntervalsResources.Game_Start;
-
-        if (_gate.IsBusy)
-        {
-            StatusText = "Sequence running";
-            return;
-        }
-
-        if (_t1Pending || _t2Pending)
-        {
-            StatusText = "Pending sequence";
-            return;
-        }
-
-        StatusText = _isRunning ? "Running" : "Paused";
     }
 }

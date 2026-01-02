@@ -6,39 +6,93 @@
              NavigationPage.HasNavigationBar="False">
 
     <Grid Padding="24"
-          RowDefinitions="*,Auto"
-          RowSpacing="18">
+          RowDefinitions="Auto,Auto,*,Auto"
+          RowSpacing="4">
 
-        <ScrollView Grid.Row="0">
-            <VerticalStackLayout Spacing="16" Padding="0,0,0,40">
+        <Image Grid.Row="0"
+               Source="smoke_logo.svg"
+               HeightRequest="200"
+               Aspect="AspectFit"
+               HorizontalOptions="Center"
+               Margin="0,2,0,0" />
 
-                <Image Source="smoke_logo.svg"
-                       HeightRequest="120"
-                       Aspect="AspectFit"
-                       HorizontalOptions="Center"
-                       Margin="0,4,0,4" />
+        <Label Grid.Row="1"
+               Text="{x:Static local:EndureIntervalsResources.Stats_Title}"
+               FontSize="52"
+               HorizontalTextAlignment="Center"
+               Margin="0,0,0,6" />
 
-                <Label Text="{x:Static local:EndureIntervalsResources.Stats_Title}" FontSize="52" />
+        <VerticalStackLayout Grid.Row="2"
+                             Spacing="12"
+                             VerticalOptions="Start"
+                             HorizontalOptions="Fill">
 
-                <Border StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18" Padding="16,12">
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="{Binding Timer1MaxDurationText}" FontSize="28" HorizontalTextAlignment="Start"/>
-                        <Label Text="{Binding Timer1MaxDurationCountText}" FontSize="28" HorizontalTextAlignment="Start"/>
-                    </VerticalStackLayout>
-                </Border>
+            <Border StrokeThickness="0"
+                    BackgroundColor="{StaticResource ButtonColor}"
+                    StrokeShape="RoundRectangle 18"
+                    Padding="16,14">
 
-                <Border StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18" Padding="16,12">
-                    <VerticalStackLayout Spacing="8">
-                        <Label Text="{Binding Timer2SequenceCountText}" FontSize="28" HorizontalTextAlignment="Start"/>
-                        <Label Text="{Binding Timer2DelayAfter2SumText}" FontSize="28" HorizontalTextAlignment="Start"/>
-                        <Label Text="{Binding Timer2BaseAfter3SumText}" FontSize="28" HorizontalTextAlignment="Start"/>
-                    </VerticalStackLayout>
-                </Border>
+                <Grid ColumnDefinitions="*,Auto"
+                      ColumnSpacing="14">
+                    <Label Text="{x:Static local:EndureIntervalsResources.Stats_Timer1_MaxRepeatsReached}"
+                           FontSize="30"
+                           HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1"
+                           Text="{Binding Timer1MaxRepeatsReachedText}"
+                           FontSize="30"
+                           HorizontalTextAlignment="End" />
+                </Grid>
 
-            </VerticalStackLayout>
-        </ScrollView>
+            </Border>
 
-        <Button Grid.Row="1"
+            <Border StrokeThickness="0"
+                    BackgroundColor="{StaticResource ButtonColor}"
+                    StrokeShape="RoundRectangle 18"
+                    Padding="16,14"
+                    IsVisible="{Binding IsTimer2Visible}">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Grid ColumnDefinitions="*,Auto"
+                          ColumnSpacing="14">
+                        <Label Text="{x:Static local:EndureIntervalsResources.Stats_Timer2_SequenceCount}"
+                               FontSize="30"
+                               HorizontalTextAlignment="Start" />
+                        <Label Grid.Column="1"
+                               Text="{Binding Timer2SequenceCountText}"
+                               FontSize="30"
+                               HorizontalTextAlignment="End" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*,Auto"
+                          ColumnSpacing="14">
+                        <Label Text="{x:Static local:EndureIntervalsResources.Stats_Timer2_DelayAfter2Sum}"
+                               FontSize="30"
+                               HorizontalTextAlignment="Start" />
+                        <Label Grid.Column="1"
+                               Text="{Binding Timer2DelayAfter2SumText}"
+                               FontSize="30"
+                               HorizontalTextAlignment="End" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*,Auto"
+                          ColumnSpacing="14">
+                        <Label Text="{x:Static local:EndureIntervalsResources.Stats_Timer2_BaseAfter3Sum}"
+                               FontSize="30"
+                               HorizontalTextAlignment="Start" />
+                        <Label Grid.Column="1"
+                               Text="{Binding Timer2BaseAfter3SumText}"
+                               FontSize="30"
+                               HorizontalTextAlignment="End" />
+                    </Grid>
+
+                </VerticalStackLayout>
+
+            </Border>
+
+        </VerticalStackLayout>
+
+        <Button Grid.Row="3"
                 Text="{x:Static local:EndureIntervalsResources.Stats_Back}"
                 WidthRequest="128"
                 HeightRequest="128"
@@ -47,6 +101,7 @@
                 TextColor="{StaticResource White}"
                 FontSize="32"
                 HorizontalOptions="Center"
+                Margin="0,28,0,0"
                 Command="{Binding BackCommand}" />
 
     </Grid>

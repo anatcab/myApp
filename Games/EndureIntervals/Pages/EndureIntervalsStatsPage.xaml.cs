@@ -1,6 +1,4 @@
-﻿using fApp.Games.EndureIntervals;
-
-namespace fApp.Games.EndureIntervals;
+﻿namespace fApp.Games.EndureIntervals;
 
 public partial class EndureIntervalsStatsPage : ContentPage
 {

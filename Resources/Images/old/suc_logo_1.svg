@@ -2,8 +2,7 @@
   <g fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round">
 
     <g stroke-width="6">
-      <path d="M600 46 600 290" />
-            <path d="M600 380 600 425" />
+      <path d="M600 46 C600 70, 600 96, 600 118 C600 132, 600 150, 600 168 C600 182, 600 196, 600 210 C600 230, 600 252, 600 276 C600 300, 600 334, 600 378 C600 400, 600 416, 600 432" />
       <path d="M560 76 L640 76" />
     </g>
 

@@ -28,6 +28,10 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<fApp.Shared.INonRepeatingRandom, fApp.Shared.NonRepeatingRandom>();
 
+        builder.Services.AddSingleton<fApp.Shared.ISequenceGate, fApp.Shared.SequenceGate>();
+        builder.Services.AddSingleton<fApp.Shared.IRandomTimeProvider, fApp.Shared.RandomTimeProvider>();
+        builder.Services.AddSingleton<fApp.Shared.IAudioService, fApp.Shared.AudioService>();
+
         builder.Services.AddSingleton<fApp.Games.MusicCounter.IMusicCounterCatalog, fApp.Games.MusicCounter.MusicCounterCatalog>();
 
         builder.Services.AddTransient<fApp.Games.MusicCounter.MusicCounterSetupViewModel>();
@@ -37,6 +41,14 @@ public static class MauiProgram
         builder.Services.AddTransient<fApp.Games.MusicCounter.MusicCounterSetupPage>();
         builder.Services.AddTransient<fApp.Games.MusicCounter.MusicCounterGamePage>();
         builder.Services.AddTransient<fApp.Games.MusicCounter.MusicCounterStatsPage>();
+
+        builder.Services.AddTransient<fApp.Games.EndureIntervals.EndureIntervalsSetupViewModel>();
+        builder.Services.AddTransient<fApp.Games.EndureIntervals.EndureIntervalsGameViewModel>();
+        builder.Services.AddTransient<fApp.Games.EndureIntervals.EndureIntervalsStatsViewModel>();
+
+        builder.Services.AddTransient<fApp.Games.EndureIntervals.EndureIntervalsSetupPage>();
+        builder.Services.AddTransient<fApp.Games.EndureIntervals.EndureIntervalsGamePage>();
+        builder.Services.AddTransient<fApp.Games.EndureIntervals.EndureIntervalsStatsPage>();
 
         return builder.Build();
     }

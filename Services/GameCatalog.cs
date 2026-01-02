@@ -12,10 +12,10 @@ public sealed class GameCatalog : IGameCatalog
                 HasStats: true
             ),
             new(
-                Id: "audio-intervals",
-                DisplayNameKey: "Game_AudioIntervals",
+                Id: "endure-intervals",
+                DisplayNameKey: "Game_EndureIntervals",
                 HasSetup: true,
-                HasStats: false
+                HasStats: true
             )
         };
 

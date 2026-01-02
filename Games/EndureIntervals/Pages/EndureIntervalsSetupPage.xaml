@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:fApp.Games.EndureIntervals"
+             x:Class="fApp.Games.EndureIntervals.EndureIntervalsSetupPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid Padding="24"
+          RowDefinitions="Auto,*,Auto"
+          RowSpacing="18">
+
+        <Image Grid.Row="0"
+               Source="smoke_logo.svg"
+               HeightRequest="260"
+               Aspect="AspectFit"
+               HorizontalOptions="Center"
+               Margin="0,8,0,6" />
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="16" Padding="0,0,0,10">
+
+                <Border StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18" Padding="16,12">
+                    <Label Text="{x:Static local:EndureIntervalsResources.Setup_Timer1}" FontSize="36" />
+                </Border>
+
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                    <Label Grid.Column="0" Text="{x:Static local:EndureIntervalsResources.Setup_Min}" FontSize="26" HorizontalTextAlignment="Start"/>
+                    <Border Grid.Column="1" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18" Padding="16,12">
+                        <Label Text="{Binding Timer1MinSeconds}" FontSize="28"/>
+                    </Border>
+                    <Grid Grid.Column="2" ColumnDefinitions="Auto,Auto" ColumnSpacing="10">
+                        <Border WidthRequest="56" HeightRequest="56" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Timer1MinMinusCommand}" />
+                            </Border.GestureRecognizers>
+                            <Grid>
+                                <Label Text="-" FontSize="34" FontFamily="OpenSansSemibold" TextColor="{StaticResource White}" />
+                            </Grid>
+                        </Border>
+                        <Border WidthRequest="56" HeightRequest="56" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Timer1MinPlusCommand}" />
+                            </Border.GestureRecognizers>
+                            <Grid>
+                                <Label Text="+" FontSize="34" FontFamily="OpenSansSemibold" TextColor="{StaticResource White}" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                    <Label Grid.Column="0" Text="{x:Static local:EndureIntervalsResources.Setup_Max}" FontSize="26" HorizontalTextAlignment="Start"/>
+                    <Border Grid.Column="1" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18" Padding="16,12">
+                        <Label Text="{Binding Timer1MaxSeconds}" FontSize="28"/>
+                    </Border>
+                    <Grid Grid.Column="2" ColumnDefinitions="Auto,Auto" ColumnSpacing="10">
+                        <Border WidthRequest="56" HeightRequest="56" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Timer1MaxMinusCommand}" />
+                            </Border.GestureRecognizers>
+                            <Grid>
+                                <Label Text="-" FontSize="34" FontFamily="OpenSansSemibold" TextColor="{StaticResource White}" />
+                            </Grid>
+                        </Border>
+                        <Border WidthRequest="56" HeightRequest="56" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Timer1MaxPlusCommand}" />
+                            </Border.GestureRecognizers>
+                            <Grid>
+                                <Label Text="+" FontSize="34" FontFamily="OpenSansSemibold" TextColor="{StaticResource White}" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                    <Label Grid.Column="0" Text="{x:Static local:EndureIntervalsResources.Setup_Repeats}" FontSize="26" HorizontalTextAlignment="Start"/>
+                    <Border Grid.Column="1" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18" Padding="16,12">
+                        <Label Text="{Binding Timer1MaxRepeats}" FontSize="28"/>
+                    </Border>
+                    <Grid Grid.Column="2" ColumnDefinitions="Auto,Auto" ColumnSpacing="10">
+                        <Border WidthRequest="56" HeightRequest="56" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Timer1RepeatsMinusCommand}" />
+                            </Border.GestureRecognizers>
+                            <Grid>
+                                <Label Text="-" FontSize="34" FontFamily="OpenSansSemibold" TextColor="{StaticResource White}" />
+                            </Grid>
+                        </Border>
+                        <Border WidthRequest="56" HeightRequest="56" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Timer1RepeatsPlusCommand}" />
+                            </Border.GestureRecognizers>
+                            <Grid>
+                                <Label Text="+" FontSize="34" FontFamily="OpenSansSemibold" TextColor="{StaticResource White}" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+
+                <Border StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18" Padding="16,12">
+                    <Label Text="{x:Static local:EndureIntervalsResources.Setup_Timer2}" FontSize="36" />
+                </Border>
+
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                    <Label Grid.Column="0" Text="{x:Static local:EndureIntervalsResources.Setup_Enabled}" FontSize="26" HorizontalTextAlignment="Start"/>
+                    <Border Grid.Column="1" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18" Padding="16,12">
+                        <Label Text="{Binding Timer2EnabledLabel}" FontSize="28"/>
+                    </Border>
+                    <Border Grid.Column="2" WidthRequest="128" HeightRequest="56" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ToggleTimer2Command}" />
+                        </Border.GestureRecognizers>
+                        <Grid>
+                            <Label Text="Toggle" FontSize="22" />
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                    <Label Grid.Column="0" Text="{x:Static local:EndureIntervalsResources.Setup_Min}" FontSize="26" HorizontalTextAlignment="Start"/>
+                    <Border Grid.Column="1" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18" Padding="16,12">
+                        <Label Text="{Binding Timer2MinSeconds}" FontSize="28"/>
+                    </Border>
+                    <Grid Grid.Column="2" ColumnDefinitions="Auto,Auto" ColumnSpacing="10">
+                        <Border WidthRequest="56" HeightRequest="56" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Timer2MinMinusCommand}" />
+                            </Border.GestureRecognizers>
+                            <Grid>
+                                <Label Text="-" FontSize="34" FontFamily="OpenSansSemibold" TextColor="{StaticResource White}" />
+                            </Grid>
+                        </Border>
+                        <Border WidthRequest="56" HeightRequest="56" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Timer2MinPlusCommand}" />
+                            </Border.GestureRecognizers>
+                            <Grid>
+                                <Label Text="+" FontSize="34" FontFamily="OpenSansSemibold" TextColor="{StaticResource White}" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                    <Label Grid.Column="0" Text="{x:Static local:EndureIntervalsResources.Setup_Max}" FontSize="26" HorizontalTextAlignment="Start"/>
+                    <Border Grid.Column="1" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18" Padding="16,12">
+                        <Label Text="{Binding Timer2MaxSeconds}" FontSize="28"/>
+                    </Border>
+                    <Grid Grid.Column="2" ColumnDefinitions="Auto,Auto" ColumnSpacing="10">
+                        <Border WidthRequest="56" HeightRequest="56" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Timer2MaxMinusCommand}" />
+                            </Border.GestureRecognizers>
+                            <Grid>
+                                <Label Text="-" FontSize="34" FontFamily="OpenSansSemibold" TextColor="{StaticResource White}" />
+                            </Grid>
+                        </Border>
+                        <Border WidthRequest="56" HeightRequest="56" StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Timer2MaxPlusCommand}" />
+                            </Border.GestureRecognizers>
+                            <Grid>
+                                <Label Text="+" FontSize="34" FontFamily="OpenSansSemibold" TextColor="{StaticResource White}" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Button Grid.Row="2"
+                Text="{x:Static local:EndureIntervalsResources.Setup_Go}"
+                CornerRadius="999"
+                HeightRequest="96"
+                FontSize="42"
+                Margin="0,14,0,0"
+                IsEnabled="{Binding CanStart}"
+                Command="{Binding GoCommand}">
+            <Button.Triggers>
+                <DataTrigger TargetType="Button" Binding="{Binding IsEnabled}" Value="False">
+                    <Setter Property="BackgroundColor" Value="{StaticResource InactiveColor}" />
+                </DataTrigger>
+                <DataTrigger TargetType="Button" Binding="{Binding IsEnabled}" Value="True">
+                    <Setter Property="BackgroundColor" Value="{StaticResource SpecialColor}" />
+                </DataTrigger>
+            </Button.Triggers>
+        </Button>
+
+    </Grid>
+</ContentPage>

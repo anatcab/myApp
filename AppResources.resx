@@ -121,7 +121,7 @@
     <value>Pick your poison...</value>
     <comment>GameListPage: Invitation to playing</comment>
   </data>
-  <data name="Game_AudioIntervals" xml:space="preserve">
+  <data name="Game_EndureIntervals" xml:space="preserve">
     <value>Endure and wait</value>
     <comment>GameListPage: Button for intervals game</comment>
   </data>

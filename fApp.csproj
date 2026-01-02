@@ -52,6 +52,11 @@
 			<AutoGen>True</AutoGen>
 			<DependentUpon>AppResources.resx</DependentUpon>
 		</Compile>
+		<Compile Update="Games\EndureIntervals\EndureIntervalsResources.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>EndureIntervalsResources.resx</DependentUpon>
+		</Compile>
 
 		<Compile Update="Games\MusicCounter\MusicCounterResources.Designer.cs">
 			<DesignTime>True</DesignTime>
@@ -79,6 +84,10 @@
 			<Generator>PublicResXFileCodeGenerator</Generator>
 			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
+		<EmbeddedResource Update="Games\EndureIntervals\EndureIntervalsResources.resx">
+		  <Generator>PublicResXFileCodeGenerator</Generator>
+		  <LastGenOutput>EndureIntervalsResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
 
 		<EmbeddedResource Update="Games\MusicCounter\MusicCounterResources.resx">
 			<Generator>PublicResXFileCodeGenerator</Generator>
@@ -87,6 +96,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<MauiXaml Update="Games\EndureIntervals\Pages\EndureIntervalsGamePage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Games\EndureIntervals\Pages\EndureIntervalsSetupPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Games\EndureIntervals\Pages\EndureIntervalsStatsPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="Games\MusicCounter\Pages\MusicCounterGamePage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>

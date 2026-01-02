@@ -28,6 +28,13 @@ public partial class GamesListViewModel : ObservableObject
             return;
         }
 
+        if (entry.Game.Id == "endure-intervals")
+        {
+            var setup = Application.Current!.Handler!.MauiContext!.Services.GetRequiredService<fApp.Games.EndureIntervals.EndureIntervalsSetupPage>();
+            await Application.Current!.MainPage!.Navigation.PushAsync(setup);
+            return;
+        }
+
         await Application.Current!.MainPage!.DisplayAlert("Selected game", entry.DisplayName, "OK");
     }
 

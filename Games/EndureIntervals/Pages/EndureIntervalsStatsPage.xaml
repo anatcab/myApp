@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:fApp.Games.EndureIntervals"
+             x:Class="fApp.Games.EndureIntervals.EndureIntervalsStatsPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid Padding="24"
+          RowDefinitions="*,Auto"
+          RowSpacing="18">
+
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="16" Padding="0,0,0,40">
+
+                <Image Source="smoke_logo.svg"
+                       HeightRequest="120"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center"
+                       Margin="0,4,0,4" />
+
+                <Label Text="{x:Static local:EndureIntervalsResources.Stats_Title}" FontSize="52" />
+
+                <Border StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18" Padding="16,12">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="{Binding Timer1MaxDurationText}" FontSize="28" HorizontalTextAlignment="Start"/>
+                        <Label Text="{Binding Timer1MaxDurationCountText}" FontSize="28" HorizontalTextAlignment="Start"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border StrokeThickness="0" BackgroundColor="{StaticResource ButtonColor}" StrokeShape="RoundRectangle 18" Padding="16,12">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="{Binding Timer2SequenceCountText}" FontSize="28" HorizontalTextAlignment="Start"/>
+                        <Label Text="{Binding Timer2DelayAfter2SumText}" FontSize="28" HorizontalTextAlignment="Start"/>
+                        <Label Text="{Binding Timer2BaseAfter3SumText}" FontSize="28" HorizontalTextAlignment="Start"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Button Grid.Row="1"
+                Text="{x:Static local:EndureIntervalsResources.Stats_Back}"
+                WidthRequest="128"
+                HeightRequest="128"
+                CornerRadius="999"
+                BackgroundColor="{StaticResource SpecialColor}"
+                TextColor="{StaticResource White}"
+                FontSize="32"
+                HorizontalOptions="Center"
+                Command="{Binding BackCommand}" />
+
+    </Grid>
+</ContentPage>

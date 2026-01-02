@@ -63,9 +63,9 @@ namespace fApp {
         /// <summary>
         ///   Looks up a localized string similar to Endure and wait.
         /// </summary>
-        public static string Game_AudioIntervals {
+        public static string Game_EndureIntervals {
             get {
-                return ResourceManager.GetString("Game_AudioIntervals", resourceCulture);
+                return ResourceManager.GetString("Game_EndureIntervals", resourceCulture);
             }
         }
         

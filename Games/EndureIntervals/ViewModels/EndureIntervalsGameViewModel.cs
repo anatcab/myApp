@@ -11,6 +11,8 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
     private readonly IRandomTimeProvider _rng;
     private readonly ISequenceGate _gate;
     private readonly IAudioService _audio;
+    [ObservableProperty] private bool _isTimer2Visible;
+    [ObservableProperty] private double _timerCircleSize = 260;
 
     private EndureIntervalsConfig? _cfg;
 
@@ -62,6 +64,8 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
     public void Initialize(EndureIntervalsConfig cfg)
     {
         _cfg = cfg;
+
+        IsTimer2Visible = cfg.Timer2Enabled;
 
         _t1MaxRepeats = cfg.Timer1MaxRepeats;
         _t1RepeatCount = 0;

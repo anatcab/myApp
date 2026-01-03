@@ -106,7 +106,7 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Prepapre.
+        ///   Looks up a localized string similar to Prepare.
         /// </summary>
         public static string Game_PopWarn {
             get {

@@ -185,6 +185,75 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
         UpdateUi();
     }
 
+    [RelayCommand]
+    private void Reset()
+    {
+        if (_cfg is null) return;
+
+        _t1Pending = false;
+        _t2Pending = false;
+
+        _t1InSequence = false;
+        _t2InSequence = false;
+
+        _t1FrozenForTimer2 = false;
+        _t1FrozenRemainingSeconds = 0;
+
+        _t1OverrideText = null;
+        _t2OverrideText = null;
+
+        _t1RepeatCount = 0;
+        _t1LimitArmed = false;
+
+        _t1LastDrawSeconds = DrawTimer1();
+        _t1StoredRemainingSeconds = _t1LastDrawSeconds;
+
+        if (_cfg.Timer2Enabled)
+        {
+            _t2LastDrawSeconds = DrawTimer2();
+            _t2StoredRemainingSeconds = _t2LastDrawSeconds;
+        }
+        else
+        {
+            _t2LastDrawSeconds = 0;
+            _t2StoredRemainingSeconds = 0;
+        }
+
+        if (_isRunning)
+        {
+            var now = DateTimeOffset.UtcNow;
+            _t1DueUtc = now.AddSeconds(Math.Max(0, _t1StoredRemainingSeconds));
+            _t2DueUtc = _cfg.Timer2Enabled ? now.AddSeconds(Math.Max(0, _t2StoredRemainingSeconds)) : now.AddYears(10);
+        }
+        else
+        {
+            _t1DueUtc = DateTimeOffset.UtcNow.AddYears(10);
+            _t2DueUtc = DateTimeOffset.UtcNow.AddYears(10);
+        }
+
+        UpdateUi();
+    }
+
+    [RelayCommand]
+    private async Task End()
+    {
+        PauseInternal();
+
+        var snap = new EndureIntervalsStatsSnapshot(
+            Timer1MaxRepeatsReached: _timer1MaxRepeatsReached,
+            Timer2Enabled: _cfg?.Timer2Enabled == true,
+            Timer2SequenceCount: _timer2SequenceCount,
+            Timer2DelayAfter2SumSeconds: _timer2DelayAfter2SumSeconds,
+            Timer2BaseAfter3SumSeconds: _timer2BaseAfter3SumSeconds
+        );
+
+        var stats = Application.Current!.Handler!.MauiContext!.Services.GetRequiredService<EndureIntervalsStatsPage>();
+        var vm = (EndureIntervalsStatsViewModel)stats.BindingContext;
+        vm.SetData(snap);
+
+        await Application.Current!.MainPage!.Navigation.PushAsync(stats);
+    }
+
     private void Tick(CancellationToken ct)
     {
         if (_cfg is null) return;

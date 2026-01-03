@@ -79,6 +79,42 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to End.
+        /// </summary>
+        public static string Game_PopEnd {
+            get {
+                return ResourceManager.GetString("Game_PopEnd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Go.
+        /// </summary>
+        public static string Game_PopGo {
+            get {
+                return ResourceManager.GetString("Game_PopGo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wait.
+        /// </summary>
+        public static string Game_PopWait {
+            get {
+                return ResourceManager.GetString("Game_PopWait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warn.
+        /// </summary>
+        public static string Game_PopWarn {
+            get {
+                return ResourceManager.GetString("Game_PopWarn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reset.
         /// </summary>
         public static string Game_Reset {
@@ -93,6 +129,24 @@ namespace fApp.Games.EndureIntervals {
         public static string Game_Start {
             get {
                 return ResourceManager.GetString("Game_Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Go.
+        /// </summary>
+        public static string Game_Timer1_Go {
+            get {
+                return ResourceManager.GetString("Game_Timer1_Go", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wait.
+        /// </summary>
+        public static string Game_Timer1_Wait {
+            get {
+                return ResourceManager.GetString("Game_Timer1_Wait", resourceCulture);
             }
         }
         

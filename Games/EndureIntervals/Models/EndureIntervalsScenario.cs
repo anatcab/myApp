@@ -5,5 +5,5 @@ public sealed record EndureIntervalsScenario(
     int DelayAfterSecondSeconds,
     int BaseAfterThirdSeconds,
     int MaxRandomAfterThirdSeconds,
-    string ScenarioBeepAsset
+    string ScenarioWarnAsset
 );

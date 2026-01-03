@@ -136,7 +136,7 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
 
     private void StartInternal()
     {
-        AudioService.VibrateStart();
+        VibrateIfEnabled(TimeSpan.FromMilliseconds(35));
 
         if (_cfg is null) return;
 
@@ -183,69 +183,6 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
         _cts = null;
         StartPauseText = EndureIntervalsResources.Game_Start;
         UpdateUi();
-    }
-
-    [RelayCommand]
-    private void Reset()
-    {
-        if (_cfg is null) return;
-
-        _t1RepeatCount = 0;
-        _t1LimitArmed = false;
-
-        _t1Pending = false;
-        _t2Pending = false;
-
-        _t1InSequence = false;
-        _t2InSequence = false;
-
-        _t1FrozenForTimer2 = false;
-        _t1FrozenRemainingSeconds = 0;
-
-        _t1OverrideText = null;
-        _t2OverrideText = null;
-
-        _t1LastDrawSeconds = DrawTimer1();
-        _t1StoredRemainingSeconds = _t1LastDrawSeconds;
-        _t1DueUtc = DateTimeOffset.UtcNow.AddYears(10);
-
-        if (_cfg.Timer2Enabled)
-        {
-            _t2LastDrawSeconds = DrawTimer2();
-            _t2StoredRemainingSeconds = _t2LastDrawSeconds;
-            _t2DueUtc = DateTimeOffset.UtcNow.AddYears(10);
-        }
-        else
-        {
-            _t2LastDrawSeconds = 0;
-            _t2StoredRemainingSeconds = 0;
-            _t2DueUtc = DateTimeOffset.UtcNow.AddYears(10);
-        }
-
-        _isRunning = false;
-        StartPauseText = EndureIntervalsResources.Game_Start;
-
-        UpdateUi();
-    }
-
-    [RelayCommand]
-    private async Task End()
-    {
-        PauseInternal();
-
-        var snap = new EndureIntervalsStatsSnapshot(
-            Timer1MaxRepeatsReached: _timer1MaxRepeatsReached,
-            Timer2Enabled: _cfg?.Timer2Enabled == true,
-            Timer2SequenceCount: _timer2SequenceCount,
-            Timer2DelayAfter2SumSeconds: _timer2DelayAfter2SumSeconds,
-            Timer2BaseAfter3SumSeconds: _timer2BaseAfter3SumSeconds
-        );
-
-        var stats = Application.Current!.Handler!.MauiContext!.Services.GetRequiredService<EndureIntervalsStatsPage>();
-        var vm = (EndureIntervalsStatsViewModel)stats.BindingContext;
-        vm.SetData(snap);
-
-        await Application.Current!.MainPage!.Navigation.PushAsync(stats);
     }
 
     private void Tick(CancellationToken ct)
@@ -295,18 +232,24 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
 
         await _gate.RunAsync(async token =>
         {
-            _t1OverrideText = EndureIntervalsResources.Game_Timer1_Go;
-            UpdateUi();
-
             if (_t1LimitArmed)
             {
+                _t1OverrideText = EndureIntervalsResources.Game_Timer1_Reset;
+                UpdateUi();
+
+                VibrateIfEnabled(TimeSpan.FromMilliseconds(35));
                 await _audio.PlayAsync("inf_limit", token);
+
                 _t1LimitArmed = false;
                 _t1RepeatCount = 0;
                 _t1MaxRepeats += 1;
             }
             else
             {
+                _t1OverrideText = EndureIntervalsResources.Game_Timer1_Go;
+                UpdateUi();
+
+                VibrateIfEnabled(TimeSpan.FromMilliseconds(35));
                 await _audio.PlayAsync("inf_tick", token);
 
                 _t1RepeatCount += 1;
@@ -357,21 +300,25 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
         {
             _t2OverrideText = EndureIntervalsResources.Game_PopWarn;
             UpdateUi();
+            VibrateIfEnabled(TimeSpan.FromMilliseconds(35));
             await _audio.PlayAsync(scenario.ScenarioWarnAsset, token);
             await Task.Delay(TimeSpan.FromSeconds(6), token);
 
             _t2OverrideText = EndureIntervalsResources.Game_PopGo;
             UpdateUi();
+            VibrateIfEnabled(TimeSpan.FromMilliseconds(35));
             await _audio.PlayAsync("pop_go", token);
             await Task.Delay(TimeSpan.FromSeconds(scenario.DelayAfterSecondSeconds), token);
 
             _t2OverrideText = EndureIntervalsResources.Game_PopWait;
             UpdateUi();
+            VibrateIfEnabled(TimeSpan.FromMilliseconds(35));
             await _audio.PlayAsync("pop_wait", token);
             await Task.Delay(TimeSpan.FromSeconds(scenario.BaseAfterThirdSeconds + rand), token);
 
             _t2OverrideText = EndureIntervalsResources.Game_PopEnd;
             UpdateUi();
+            VibrateIfEnabled(TimeSpan.FromMilliseconds(35));
             await _audio.PlayAsync("pop_end", token);
         }, SequenceCooldown, ct);
 
@@ -474,5 +421,11 @@ public partial class EndureIntervalsGameViewModel : ObservableObject
         }
 
         StartPauseText = _isRunning ? EndureIntervalsResources.Game_Pause : EndureIntervalsResources.Game_Start;
+    }
+
+    private void VibrateIfEnabled(TimeSpan duration)
+    {
+        if (_cfg?.VibrationsEnabled != true) return;
+        try { Microsoft.Maui.Devices.Vibration.Default.Vibrate(duration); } catch { }
     }
 }

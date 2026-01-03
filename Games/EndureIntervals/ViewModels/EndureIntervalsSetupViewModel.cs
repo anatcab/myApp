@@ -21,6 +21,8 @@ public partial class EndureIntervalsSetupViewModel : ObservableObject
         Timer2MinSeconds = 60;
         Timer2MaxSeconds = 180;
 
+        VibrationsEnabled = true;
+
         RecalcCanStart();
     }
 
@@ -31,6 +33,8 @@ public partial class EndureIntervalsSetupViewModel : ObservableObject
     [ObservableProperty] private bool _timer2Enabled;
     [ObservableProperty] private int _timer2MinSeconds;
     [ObservableProperty] private int _timer2MaxSeconds;
+
+    [ObservableProperty] private bool _vibrationsEnabled;
 
     [ObservableProperty] private bool _canStart;
 
@@ -80,7 +84,8 @@ public partial class EndureIntervalsSetupViewModel : ObservableObject
             Timer1Range: new TimeRange(Timer1MinSeconds, Timer1MaxSeconds),
             Timer1MaxRepeats: Timer1MaxRepeats,
             Timer2Enabled: Timer2Enabled,
-            Timer2Range: new TimeRange(Timer2MinSeconds, Timer2MaxSeconds)
+            Timer2Range: new TimeRange(Timer2MinSeconds, Timer2MaxSeconds),
+            VibrationsEnabled: VibrationsEnabled
         );
 
         var game = Application.Current!.Handler!.MauiContext!.Services.GetRequiredService<EndureIntervalsGamePage>();

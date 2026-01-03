@@ -79,7 +79,7 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to End.
+        ///   Looks up a localized string similar to Exhale.
         /// </summary>
         public static string Game_PopEnd {
             get {
@@ -88,7 +88,7 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Go.
+        ///   Looks up a localized string similar to Sniff.
         /// </summary>
         public static string Game_PopGo {
             get {
@@ -97,7 +97,7 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wait.
+        ///   Looks up a localized string similar to Hold.
         /// </summary>
         public static string Game_PopWait {
             get {
@@ -106,7 +106,7 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Warn.
+        ///   Looks up a localized string similar to Prepapre.
         /// </summary>
         public static string Game_PopWarn {
             get {
@@ -133,11 +133,20 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Go.
+        ///   Looks up a localized string similar to Pump.
         /// </summary>
         public static string Game_Timer1_Go {
             get {
                 return ResourceManager.GetString("Game_Timer1_Go", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deflate.
+        /// </summary>
+        public static string Game_Timer1_Reset {
+            get {
+                return ResourceManager.GetString("Game_Timer1_Reset", resourceCulture);
             }
         }
         
@@ -187,7 +196,7 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Max repeats.
+        ///   Looks up a localized string similar to Max pumps.
         /// </summary>
         public static string Setup_Repeats {
             get {
@@ -196,7 +205,7 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Timer 1.
+        ///   Looks up a localized string similar to Inflatable plug.
         /// </summary>
         public static string Setup_Timer1 {
             get {
@@ -205,11 +214,20 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Timer 2.
+        ///   Looks up a localized string similar to Poppers.
         /// </summary>
         public static string Setup_Timer2 {
             get {
                 return ResourceManager.GetString("Setup_Timer2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vibrate.
+        /// </summary>
+        public static string Setup_Vibration {
+            get {
+                return ResourceManager.GetString("Setup_Vibration", resourceCulture);
             }
         }
         
@@ -223,7 +241,7 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Timer 1.
+        ///   Looks up a localized string similar to Inflatable plug.
         /// </summary>
         public static string Stats_Timer1_Header {
             get {
@@ -232,7 +250,7 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Max repeats reached.
+        ///   Looks up a localized string similar to Maximum pumps endured.
         /// </summary>
         public static string Stats_Timer1_MaxRepeatsReached {
             get {
@@ -241,7 +259,7 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sum base-after-3.
+        ///   Looks up a localized string similar to Holded for.
         /// </summary>
         public static string Stats_Timer2_BaseAfter3Sum {
             get {
@@ -250,7 +268,7 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sum delay-after-2.
+        ///   Looks up a localized string similar to Inhaled for.
         /// </summary>
         public static string Stats_Timer2_DelayAfter2Sum {
             get {
@@ -259,7 +277,7 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Timer 2.
+        ///   Looks up a localized string similar to Poppers.
         /// </summary>
         public static string Stats_Timer2_Header {
             get {
@@ -268,7 +286,7 @@ namespace fApp.Games.EndureIntervals {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sequences.
+        ///   Looks up a localized string similar to Sniffs.
         /// </summary>
         public static string Stats_Timer2_SequenceCount {
             get {

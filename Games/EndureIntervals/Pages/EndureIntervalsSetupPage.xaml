@@ -12,6 +12,26 @@
         <ScrollView Grid.Row="0">
             <VerticalStackLayout Spacing="14" Padding="0,0,0,10">
 
+                <Grid ColumnDefinitions="*,Auto,*"
+                      ColumnSpacing="14">
+
+                    <Label Grid.Column="0"
+                           Text="{x:Static local:EndureIntervalsResources.Setup_Vibration}"
+                           FontSize="24"
+                           HorizontalTextAlignment="Start"
+                           VerticalTextAlignment="Center" />
+
+                    <Switch Grid.Column="1"
+                            IsToggled="{Binding VibrationsEnabled}"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+
+                    <BoxView Grid.Column="2"
+                             Opacity="0"
+                             WidthRequest="1" />
+
+                </Grid>
+
                 <Border StrokeThickness="0"
                         BackgroundColor="{StaticResource ButtonColor}"
                         StrokeShape="RoundRectangle 18"

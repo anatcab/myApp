@@ -121,10 +121,10 @@
     <value>Go!</value>
   </data>
   <data name="Setup_Timer1" xml:space="preserve">
-    <value>Timer 1</value>
+    <value>Inflatable plug</value>
   </data>
   <data name="Setup_Timer2" xml:space="preserve">
-    <value>Timer 2</value>
+    <value>Poppers</value>
   </data>
   <data name="Setup_Min" xml:space="preserve">
     <value>Min</value>
@@ -133,7 +133,7 @@
     <value>Max</value>
   </data>
   <data name="Setup_Repeats" xml:space="preserve">
-    <value>Max repeats</value>
+    <value>Max pumps</value>
   </data>
   <data name="Setup_Enabled" xml:space="preserve">
     <value>Enabled</value>
@@ -151,19 +151,19 @@
     <value>End</value>
   </data>
   <data name="Game_Timer1_Go" xml:space="preserve">
-    <value>Go</value>
+    <value>Pump</value>
   </data>
   <data name="Game_PopWarn" xml:space="preserve">
-    <value>Warn</value>
+    <value>Prepapre</value>
   </data>
   <data name="Game_PopGo" xml:space="preserve">
-    <value>Go</value>
+    <value>Sniff</value>
   </data>
   <data name="Game_PopWait" xml:space="preserve">
-    <value>Wait</value>
+    <value>Hold</value>
   </data>
   <data name="Game_PopEnd" xml:space="preserve">
-    <value>End</value>
+    <value>Exhale</value>
   </data>
   <data name="Stats_Title" xml:space="preserve">
     <value>Stats:</value>
@@ -172,24 +172,30 @@
     <value>Return...</value>
   </data>
   <data name="Stats_Timer1_Header" xml:space="preserve">
-    <value>Timer 1</value>
+    <value>Inflatable plug</value>
   </data>
   <data name="Stats_Timer2_Header" xml:space="preserve">
-    <value>Timer 2</value>
+    <value>Poppers</value>
   </data>
   <data name="Stats_Timer1_MaxRepeatsReached" xml:space="preserve">
-    <value>Max repeats reached</value>
+    <value>Maximum pumps endured</value>
   </data>
   <data name="Stats_Timer2_SequenceCount" xml:space="preserve">
-    <value>Sequences</value>
+    <value>Sniffs</value>
   </data>
   <data name="Stats_Timer2_DelayAfter2Sum" xml:space="preserve">
-    <value>Sum delay-after-2</value>
+    <value>Inhaled for</value>
   </data>
   <data name="Stats_Timer2_BaseAfter3Sum" xml:space="preserve">
-    <value>Sum base-after-3</value>
+    <value>Holded for</value>
   </data>
   <data name="Game_Timer1_Wait" xml:space="preserve">
     <value>Wait</value>
+  </data>
+  <data name="Setup_Vibration" xml:space="preserve">
+    <value>Vibrate</value>
+  </data>
+  <data name="Game_Timer1_Reset" xml:space="preserve">
+    <value>Deflate</value>
   </data>
 </root>
